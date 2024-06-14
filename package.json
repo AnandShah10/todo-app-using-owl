@@ -1,0 +1,15 @@
+{
+    "name": "todo_app",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "live-server --open=./index.html",
+      "build": "parcel build src/main.js --dist-dir dist"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+      "live-server": "^1.2.1",
+      "parcel": "^2.0.0"
+    }
+  }
+  
