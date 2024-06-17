@@ -23,6 +23,16 @@ export class WebClient extends Component {
     });
     const todoStore = useState(new TodoStore());
     useSubEnv({ todoStore });
+    // Request notification permission
+    if ("Notification" in window && Notification.permission !== "granted") {
+      Notification.requestPermission().then(permission => {
+          if (permission === "granted") {
+              console.log("Notification permission granted.");
+          } else {
+              console.log("Notification permission denied.");
+          }
+          setInterval(() => this.checkForOverdueTasks(todoStore), 86400000);      });
+  }
     }
     selectApp(appId)
     {
